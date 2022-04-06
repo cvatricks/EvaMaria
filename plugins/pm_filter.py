@@ -9,7 +9,7 @@ import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
 from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
-    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE
+    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, H2D_BTN, WO_BTN
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -61,6 +61,11 @@ async def next_page(bot, query):
         return
     settings = await get_settings(query.message.chat.id)
     if settings['button']:
+        WO_BUTTON = [[
+                InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+        ]]
         btn = [
             [
                 InlineKeyboardButton(
@@ -69,6 +74,20 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
+        if H2D_BTN == "ON":
+            H2D_BUTTON = [[
+                InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+            ]]
+            btn = H2D_BUTTON.append(btn)
+        if WO_BTN == "ON":
+            WO_BUTTON = [[
+                InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+            ]]
+            btn = WO_BUTTON.append(btn)
     else:
         btn = [
             [
@@ -81,8 +100,21 @@ async def next_page(bot, query):
                 ),
             ]
             for file in files
-        ]
-
+        ]        
+        if H2D_BTN == "ON":
+            H2D_BUTTON = [[
+                InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+            ]]
+            btn = H2D_BUTTON.append(btn)
+        if WO_BTN == "ON":
+            WO_BUTTON = [[
+                InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+            ]]
+            btn = WO_BUTTON.append(btn)
     if 0 < offset <= 10:
         off_set = 0
     elif offset == 0:
@@ -646,6 +678,20 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
+        if H2D_BTN == "ON":
+            H2D_BUTTON = [[
+                InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+            ]]
+            btn = H2D_BUTTON.append(btn)
+        if WO_BTN == "ON":
+            WO_BUTTON = [[
+                InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+            ]]
+            btn = WO_BUTTON.append(btn)
     else:
         btn = [
             [
@@ -660,7 +706,20 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
-
+        if H2D_BTN == "ON":
+            H2D_BUTTON = [[
+                InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+            ]]
+            btn = H2D_BUTTON.append(btn)
+        if WO_BTN == "ON":
+            WO_BUTTON = [[
+                InlineKeyboardButton(
+                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                )
+            ]]
+            btn = WO_BUTTON.append(btn)
     if offset != "":
         key = f"{message.chat.id}-{message.message_id}"
         BUTTONS[key] = search
