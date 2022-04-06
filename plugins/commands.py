@@ -120,12 +120,17 @@ async def start(client, message):
                     f_caption=f_caption
             if f_caption is None:
                 f_caption = f"{title}"
+            btns = [[
+            InlineKeyboardButton('🚩 Join Backup Channel', url='https://t.me/+cVkk4WpQ4SpkODM1')
+            ]]
+            reply_markup = InlineKeyboardMarkup(btns)
             try:
                 await client.send_cached_media(
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
+                    reply_markup = reply_markup
                     )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
@@ -135,6 +140,7 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
+                    reply_markup = reply_markup
                     )
             except Exception as e:
                 logger.warning(e, exc_info=True)
