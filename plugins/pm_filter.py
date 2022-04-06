@@ -61,11 +61,6 @@ async def next_page(bot, query):
         return
     settings = await get_settings(query.message.chat.id)
     if settings['button']:
-        WO_BUTTON = [[
-                InlineKeyboardButton(
-                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
-                )
-        ]]
         btn = [
             [
                 InlineKeyboardButton(
@@ -84,7 +79,7 @@ async def next_page(bot, query):
         if WO_BTN == "ON":
             WO_BUTTON = [[
                 InlineKeyboardButton(
-                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                    text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search)
                 )
             ]]
             btn = WO_BUTTON.append(btn)
@@ -111,7 +106,7 @@ async def next_page(bot, query):
         if WO_BTN == "ON":
             WO_BUTTON = [[
                 InlineKeyboardButton(
-                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                    text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search)
                 )
             ]]
             btn = WO_BUTTON.append(btn)
@@ -688,7 +683,7 @@ async def auto_filter(client, msg, spoll=False):
         if WO_BTN == "ON":
             WO_BUTTON = [[
                 InlineKeyboardButton(
-                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                    text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search)
                 )
             ]]
             btn = WO_BUTTON.append(btn)
@@ -716,7 +711,7 @@ async def auto_filter(client, msg, spoll=False):
         if WO_BTN == "ON":
             WO_BUTTON = [[
                 InlineKeyboardButton(
-                    text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
+                    text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search)
                 )
             ]]
             btn = WO_BUTTON.append(btn)
