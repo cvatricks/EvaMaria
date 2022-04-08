@@ -70,19 +70,19 @@ async def next_page(bot, query):
             for file in files
         ]
         if H2D_BTN == "ON":
-            H2D_BUTTON = [[
+            H2D_BUTTON = [
                 InlineKeyboardButton(
                     text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
                 )
-            ]]
-            btn = H2D_BUTTON.append(btn)
+            ]
+            btn.insert(0, H2D_BUTTON)
         if WO_BTN == "ON":
-            WO_BUTTON = [[
+            WO_BUTTON = [
                 InlineKeyboardButton(
                     text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search)
                 )
-            ]]
-            btn = WO_BUTTON.append(btn)
+            ]
+            btn.insert(0, WO_BUTTON)
     else:
         btn = [
             [
@@ -97,19 +97,19 @@ async def next_page(bot, query):
             for file in files
         ]        
         if H2D_BTN == "ON":
-            H2D_BUTTON = [[
+            H2D_BUTTON = [
                 InlineKeyboardButton(
                     text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
                 )
-            ]]
-            btn = H2D_BUTTON.append(btn)
+            ]
+            btn.insert(0, H2D_BUTTON)
         if WO_BTN == "ON":
-            WO_BUTTON = [[
+            WO_BUTTON = [
                 InlineKeyboardButton(
                     text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search)
                 )
-            ]]
-            btn = WO_BUTTON.append(btn)
+            ]
+            btn.insert(0, WO_BUTTON)
     if 0 < offset <= 10:
         off_set = 0
     elif offset == 0:
@@ -674,19 +674,19 @@ async def auto_filter(client, msg, spoll=False):
             for file in files
         ]
         if H2D_BTN == "ON":
-            H2D_BUTTON = [[
+            H2D_BUTTON = [
                 InlineKeyboardButton(
                     text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
                 )
-            ]]
-            btn = H2D_BUTTON.append(btn)
+            ]
+            btn.insert(0, H2D_BUTTON)
         if WO_BTN == "ON":
-            WO_BUTTON = [[
+            WO_BUTTON = [
                 InlineKeyboardButton(
                     text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search)
                 )
-            ]]
-            btn = WO_BUTTON.append(btn)
+            ]
+            btn.insert(0, WO_BUTTON)
     else:
         btn = [
             [
@@ -702,19 +702,19 @@ async def auto_filter(client, msg, spoll=False):
             for file in files
         ]
         if H2D_BTN == "ON":
-            H2D_BUTTON = [[
+            H2D_BUTTON = [
                 InlineKeyboardButton(
                     text="How to Download 🤔", url="https://t.me/How2Downloadz/4"
                 )
-            ]]
-            btn = H2D_BUTTON.append(btn)
+            ]
+            btn.insert(0, H2D_BUTTON)
         if WO_BTN == "ON":
-            WO_BUTTON = [[
+            WO_BUTTON = [
                 InlineKeyboardButton(
                     text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search)
                 )
-            ]]
-            btn = WO_BUTTON.append(btn)
+            ]
+            btn.insert(0, WO_BUTTON)
     if offset != "":
         key = f"{message.chat.id}-{message.message_id}"
         BUTTONS[key] = search
