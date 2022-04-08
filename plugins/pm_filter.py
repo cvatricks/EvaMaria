@@ -79,7 +79,7 @@ async def next_page(bot, query):
         if WO_BTN == "ON":
             WO_BUTTON = [
                 InlineKeyboardButton(
-                    text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search)
+                    text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search.replace(" ", "_"))
                 )
             ]
             btn.insert(0, WO_BUTTON)
@@ -106,7 +106,7 @@ async def next_page(bot, query):
         if WO_BTN == "ON":
             WO_BUTTON = [
                 InlineKeyboardButton(
-                    text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search)
+                    text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search.replace(" ", "_"))
                 )
             ]
             btn.insert(0, WO_BUTTON)
@@ -683,7 +683,7 @@ async def auto_filter(client, msg, spoll=False):
         if WO_BTN == "ON":
             WO_BUTTON = [
                 InlineKeyboardButton(
-                    text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search)
+                    text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search.replace(" ", "_"))
                 )
             ]
             btn.insert(0, WO_BUTTON)
@@ -711,7 +711,7 @@ async def auto_filter(client, msg, spoll=False):
         if WO_BTN == "ON":
             WO_BUTTON = [
                 InlineKeyboardButton(
-                    text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search)
+                    text="🚀 For Watch Online Click Here 🚀", url="https://t.me/M2L_StreamBot?start={}".format(search.replace(" ", "_"))
                 )
             ]
             btn.insert(0, WO_BUTTON)
