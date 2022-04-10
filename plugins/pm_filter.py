@@ -170,6 +170,8 @@ async def advantage_spoll_choker(bot, query):
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
+    if int(query.message.from_user.id) != int(query.message.reply_to_message.from_user.id):
+       return await query.answer("Nice Try 👍 But, This Was Not Your Request, Please Search Yourself In Group 🤗", show_alert=True)
     if query.data == "close_data":
         await query.message.delete()
     elif query.data == "delallconfirm":
