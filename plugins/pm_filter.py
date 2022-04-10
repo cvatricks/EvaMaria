@@ -170,9 +170,6 @@ async def advantage_spoll_choker(bot, query):
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
-    mssgg = await client.get_messages(query.message.chat.id, reply_to_message_ids=query.message.message_id)
-    if int(query.from_user.id) != int(mssgg.from_user.id):
-       return await query.answer("Nice Try 👍 But, This Was Not Your Request, Please Search Yourself In Group 🤗", show_alert=True)
     if query.data == "close_data":
         await query.message.delete()
     elif query.data == "delallconfirm":
@@ -361,6 +358,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             alert = alert.replace("\\n", "\n").replace("\\t", "\t")
             await query.answer(alert, show_alert=True)
     if query.data.startswith("file"):
+        mssgg = await client.get_messages(query.message.chat.id, reply_to_message_ids=query.message.message_id)
+        if int(query.from_user.id) != int(mssgg.from_user.id):
+           return await query.answer("Nice Try 👍 But, This Was Not Your Request, Please Search Yourself In Group 🤗", show_alert=True)
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
