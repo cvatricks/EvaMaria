@@ -170,7 +170,7 @@ async def advantage_spoll_choker(bot, query):
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
-    mssgg = await client.get_messages(query.chat.id, reply_to_message_ids=query.message_id)
+    mssgg = await client.get_messages(query.message.chat.id, reply_to_message_ids=query.message.message_id)
     if int(query.from_user.id) != int(mssgg.reply_to_message.from_user.id):
        return await query.answer("Nice Try 👍 But, This Was Not Your Request, Please Search Yourself In Group 🤗", show_alert=True)
     if query.data == "close_data":
