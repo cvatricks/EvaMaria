@@ -239,8 +239,31 @@ async def start(client, message):
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
         )
-                    
 
+@Client.on_message(filters.command('help') & filters.user(ADMINS))
+async def help_cmd(bot, message):
+        buttons = [
+            [
+            InlineKeyboardButton('Manual Filter', callback_data='manuelfilter'),
+            InlineKeyboardButton('Auto Filter', callback_data='autofilter')
+            ],
+            [
+            InlineKeyboardButton('Connection', callback_data='coct'),
+            InlineKeyboardButton('Extra Mods', callback_data='extra')
+            ],
+            [
+            InlineKeyboardButton('🏠 Home', callback_data='start'),
+            InlineKeyboardButton('🔮 Status', callback_data='stats')
+            ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await bot.message.reply_text(
+            text=script.HELP_TXT.format(message.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+        
+        
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
            
