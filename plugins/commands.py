@@ -257,7 +257,7 @@ async def help_cmd(bot, message):
             ]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await bot.message.reply_text(
+        await message.reply_text(
             text=script.HELP_TXT.format(message.from_user.mention),
             reply_markup=reply_markup,
             parse_mode='html'
