@@ -1,7 +1,7 @@
 import logging
 import asyncio
 from pyrogram import Client, filters
-from pyrogram.errors import FloodWait
+from pyrogram.errors.exceptions.flood_420 import FloodWait
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, ChatAdminRequired, UsernameInvalid, UsernameNotModified
 from info import ADMINS
 from info import INDEX_REQ_CHANNEL as LOG_CHANNEL
@@ -180,7 +180,8 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
                 elif vnay == 2:
                     errors += 1
             except FloodWait as f:
-              await asyncio.sleep(f.x)
+              sleep_time = f.value + 3
+              await asyncio.sleep(sleep_time)
               async for message in bot.iter_messages(chat, lst_msg_id, temp.CURRENT):
                 if temp.CANCEL:
                     await msg.edit(f"Successfully Cancelled!!\n\nSaved <code>{total_files}</code> files to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>")
