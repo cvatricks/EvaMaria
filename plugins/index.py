@@ -145,12 +145,7 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
         try:
             current = temp.CURRENT
             temp.CANCEL = False
-            try:
-               list_msg = bot.iter_messages(chat, lst_msg_id, temp.CURRENT)
-            except FloodWait as f:
-               await asyncio.sleep(f.x)
-               list_msg = bot.iter_messages(chat, lst_msg_id, temp.CURRENT)
-            async for message in list_msg.run():
+            async for message in bot.iter_messages(chat, lst_msg_id, temp.CURRENT):
                 if temp.CANCEL:
                     await msg.edit(f"Successfully Cancelled!!\n\nSaved <code>{total_files}</code> files to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>")
                     break
@@ -183,6 +178,9 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
                     duplicate += 1
                 elif vnay == 2:
                     errors += 1
+        except FloodWait as f:
+            await asyncio.sleep(f.x)
+            continue
         except Exception as e:
             logger.exception(e)
             await msg.edit(f'Error: {e}')
