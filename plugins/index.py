@@ -143,19 +143,29 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
     unsupported = 0
     async with lock:
         try:
+            total = lst_msg_id + 1
             current = temp.CURRENT
             temp.CANCEL = False
-            #async for message in bot.iter_messages(chat, lst_msg_id, temp.CURRENT):
-            if not USERBOT_STRING_SESSION:
-               await message.edit("Set `USERBOT_STRING_SESSION` in environment variables.")
-            user_bot = Client(USERBOT_STRING_SESSION, API_ID, API_HASH)
-            user_bot.run()
-            async for message in user_bot.iter_history(chat):
+            while current < total:
+                #async for message in bot.iter_messages(chat, lst_msg_id, temp.CURRENT):
                 try:
-                   message = await bot.get_messages(chat, message.message_id, replies=0)
+                    message = await bot.get_messages(chat_id=chat, message_ids=current, replies=0)
                 except FloodWait as e:
-                   await asyncio.sleep(e.x)
-                   message = await bot.get_messages(chat, message.message_id, replies=0)
+                    await asyncio.sleep(e.x)
+                    message = await bot.get_messages(
+                        chat,
+                        current,
+                        replies=0
+                    )
+                #if not USERBOT_STRING_SESSION:
+                #   await message.edit("Set `USERBOT_STRING_SESSION` in environment variables.")
+                #user_bot = Client(USERBOT_STRING_SESSION, API_ID, API_HASH)
+                #async for message in user_bot.iter_history(chat):
+                #    try:
+                #       message = await bot.get_messages(chat, message.message_id, replies=0)
+                #    except FloodWait as e:
+                #       await asyncio.sleep(e.x)
+                #       message = await bot.get_messages(chat, message.message_id, replies=0)
                 if temp.CANCEL:
                     await msg.edit(f"Successfully Cancelled!!\n\nSaved <code>{total_files}</code> files to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>")
                     break
