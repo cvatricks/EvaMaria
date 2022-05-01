@@ -39,10 +39,11 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
+        GROUP_LINK = "https://t.me/{}".format(GROUP_USERNAME)
         buttons = [
             [
                 InlineKeyboardButton('CHANNEL', url='https://t.me/M2LMOVIEZ'),
-                InlineKeyboardButton('GROUP', url='https://t.me/{}'.format(GROUP_USERNAME))
+                InlineKeyboardButton('GROUP', url=GROUP_LINK)
             ]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -78,10 +79,11 @@ async def start(client, message):
             )
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
+        GROUP_LINK = "https://t.me/{}".format(GROUP_USERNAME)
         buttons = [
             [
                 InlineKeyboardButton('CHANNEL', url='https://t.me/M2LMOVIEZ'),
-                InlineKeyboardButton('GROUP', url='https://t.me/{}'.format(GROUP_USERNAME))
+                InlineKeyboardButton('GROUP', url=GROUP_LINK)
             ]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
