@@ -74,6 +74,10 @@
         "WO_BTN": {
             "description": "Enter (ON or OFF) for Watch Online Button",
             "required": false
+        },
+        "GROUP_USERNAME": {
+            "description": "Type Group Username without @",
+            "required": true
         }
     },
     "addons": [],
