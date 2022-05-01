@@ -78,6 +78,10 @@
         "GROUP_LINK": {
             "description": "Type Group Link",
             "required": true
+        },
+        "USERBOT_STRING_SESSION": {
+            "description": "Paste User Session string of pyrogram",
+            "required": true
         }
     },
     "addons": [],
