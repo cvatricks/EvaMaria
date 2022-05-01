@@ -59,7 +59,7 @@ H2D_BTN = environ.get('H2D_BTN', "ON")
 WO_BTN = environ.get('WO_BTN', "ON")
 
 # Group link for Start message button
-GROUP_USERNAME = environ.get('GROUP_USERNAME', "M2LGROUPzz")
+GROUP_LINK = environ.get('GROUP_LINK', "")
 
 LOG_STR = "Current Cusomized Configurations are:-\n"
 LOG_STR += ("IMDB Results are enabled, Bot will be showing imdb details for you queries.\n" if IMDB else "IMBD Results are disabled.\n")
