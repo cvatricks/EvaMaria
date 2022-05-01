@@ -21,10 +21,11 @@ BATCH_FILES = {}
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
+        GROUP_LINK = "https://t.me/{}".format(GROUP_USERNAME)
         buttons = [
             [
                 InlineKeyboardButton('CHANNEL', url='https://t.me/M2LMOVIEZ'),
-                InlineKeyboardButton('GROUP', url='https://t.me/{}'.format(GROUP_USERNAME))
+                InlineKeyboardButton('GROUP', url=GROUP_LINK)
             ]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
