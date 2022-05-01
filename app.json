@@ -75,8 +75,8 @@
             "description": "Enter (ON or OFF) for Watch Online Button",
             "required": false
         },
-        "GROUP_USERNAME": {
-            "description": "Type Group Username without @",
+        "GROUP_LINK": {
+            "description": "Type Group Link",
             "required": true
         }
     },
