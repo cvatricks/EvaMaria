@@ -149,7 +149,7 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
             if not USERBOT_STRING_SESSION:
                await message.edit("Set `USERBOT_STRING_SESSION` in environment variables.")
             user_bot = Client(USERBOT_STRING_SESSION, API_ID, API_HASH)
-            user_bot.start()
+            user_bot.run()
             async for message in user_bot.iter_history(chat):
                 try:
                    message = await bot.get_messages(chat, message.message_id, replies=0)
