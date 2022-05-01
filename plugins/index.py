@@ -3,7 +3,7 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.errors.exceptions.flood_420 import FloodWait
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, ChatAdminRequired, UsernameInvalid, UsernameNotModified
-from info import ADMINS
+from info import ADMINS, USERBOT_STRING_SESSION, API_ID, API_HASH
 from info import INDEX_REQ_CHANNEL as LOG_CHANNEL
 from database.ia_filterdb import save_file
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -146,7 +146,10 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
             current = temp.CURRENT
             temp.CANCEL = False
             #async for message in bot.iter_messages(chat, lst_msg_id, temp.CURRENT):
-            async for message in bot.iter_history(chat):
+            if not USERBOT_STRING_SESSION:
+               await message.edit("Set `USERBOT_STRING_SESSION` in environment variables.")
+            user_bot = Client(USERBOT_STRING_SESSION, API_ID, API_HASH)
+            async for message in user_bot.iter_history(chat):
                 try:
                    message = await bot.get_messages(chat, message.message_id, replies=0)
                 except FloodWait as e:
