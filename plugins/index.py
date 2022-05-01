@@ -150,7 +150,7 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
             except FloodWait as f:
                await asyncio.sleep(f.x)
                list_msg = bot.iter_messages(chat, lst_msg_id, temp.CURRENT)
-            for message in list_msg:
+            async for message in list_msg():
                 if temp.CANCEL:
                     await msg.edit(f"Successfully Cancelled!!\n\nSaved <code>{total_files}</code> files to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>")
                     break
