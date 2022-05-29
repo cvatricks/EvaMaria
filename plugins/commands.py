@@ -23,7 +23,6 @@ async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('CHANNEL', url='https://t.me/M2LMOVIEZ'),
                 InlineKeyboardButton('GROUP', url=GROUP_LINK)
             ]
         ]
@@ -41,7 +40,6 @@ async def start(client, message):
     if len(message.command) != 2:
         buttons = [
             [
-                InlineKeyboardButton('CHANNEL', url='https://t.me/M2LMOVIEZ'),
                 InlineKeyboardButton('GROUP', url=GROUP_LINK)
             ]
         ]
@@ -80,7 +78,6 @@ async def start(client, message):
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [
             [
-                InlineKeyboardButton('CHANNEL', url='https://t.me/M2LMOVIEZ'),
                 InlineKeyboardButton('GROUP', url=GROUP_LINK)
             ]
         ]
@@ -124,7 +121,7 @@ async def start(client, message):
             if f_caption is None:
                 f_caption = f"{title}"
             btns = [[
-            InlineKeyboardButton('🚩 Join Backup Channel', url='https://t.me/+cVkk4WpQ4SpkODM1')
+            InlineKeyboardButton('♥ Thanks for using', url=GROUP_LINK)
             ]]
             reply_markup = InlineKeyboardMarkup(btns)
             try:
