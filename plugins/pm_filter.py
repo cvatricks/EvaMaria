@@ -360,7 +360,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             alert = alert.replace("\\n", "\n").replace("\\t", "\t")
             await query.answer(alert, show_alert=True)
     if query.data.startswith("file"):
-        mssgg = await client.get_messages(query.message.chat.id, reply_to_message_ids=query.message.message_id)
+        mssgg = await client.get_messages(query.message.chat.id, reply_to_message_ids=query.message.id)
         if int(query.from_user.id) != int(mssgg.from_user.id):
            return await query.answer("Nice Try 👍 But, This Was Not Your Request, Please Search Yourself In Group 🤗", show_alert=True)
         ident, file_id = query.data.split("#")
