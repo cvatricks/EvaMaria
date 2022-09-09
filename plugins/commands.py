@@ -257,7 +257,7 @@ async def help_cmd(bot, message):
         await message.reply_text(
             text=script.HELP_TXT.format(message.from_user.mention),
             reply_markup=reply_markup,
-            parse_mode='html'
+            parse_mode=enums.ParseMode.HTML
         )
         
         
